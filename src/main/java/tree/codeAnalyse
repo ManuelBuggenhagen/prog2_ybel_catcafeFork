@@ -1,0 +1,28 @@
+Binary Search Tree:
+
+Vorteile:
+-modular aufgebaut
+-gut erweiterbar
+-typ ist nicht festgelegt -> Notes können verschiedene Datentypen erhalten
+-sehr flexible Datenstruktur
+
+Nachteile:
+-komplexer Aufbau
+-schwer zu lesen
+-es existieren schon ähnliche binary tree Bibliotheken, welche man nutzen könnte um sich etwas schreibarbeit zu ersparen
+
+Nutzung in Schleifen und Streams:
+Baum muss in Datenstruktur abgebildet werden, über die iteriert bzw. gestreamt werden kann.
+Man könnte zum Beispiel den Baum in geordneter Form in eine Liste / Stack schreiben und dann über die Liste
+iterieren oder streamen. Mithilfe des Tree Iterators ist dies realisiert, dieser kann über alle Notes iterieren.
+Hierzu implementiert die Baumstruktur die Interfaces "Iterator" und "Comparable". Wichtige Methoden für das Iterieren
+oder Streamen sind z.B. next() und hasNext im TreeIterator.
+
+
+
+Wie funktioniert der Tree Iterator?:
+Ein Tree Iterator wird initialisiert mit dem "root" (-> Wurzel / Top Level Node des Baumes).
+Mit der Methode "pushAllLeftNotes" werden Notes in der Reihenfolge der Gewichtung in den Stack gepackt.
+Die Methoden "next" und "hasNext" sind notwendig für das Iterieren durch die einzelnen Notes
+
+
