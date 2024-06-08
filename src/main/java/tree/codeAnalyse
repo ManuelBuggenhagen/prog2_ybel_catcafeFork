@@ -20,6 +20,7 @@ oder Streamen sind z.B. next() und hasNext im TreeIterator.
 
 
 
+
 Wie funktioniert der Tree Iterator?:
 Ein Tree Iterator wird initialisiert mit dem "root" (-> Wurzel / Top Level Node des Baumes).
 Mit der Methode "pushAllLeftNotes" werden Notes in der Reihenfolge der Gewichtung in den Stack gepackt.
