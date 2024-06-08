@@ -22,10 +22,10 @@ public class Main {
         FelineOverLord meow = cafe.getCatByWeight(3, 4);
         System.out.println("Gewicht [3,4]: " + meow);
 
-        meow = cafe.getCatByName("Morticia").orElseThrow();
+        meow = cafe.getCatByName("Morticia");
         System.out.println("Name 'Morticia': " + meow);
 
-        meow = cafe.getCatByName("Miss Chief Sooky").orElseThrow();
+        meow = cafe.getCatByName("Miss Chief Sooky");
         System.out.println("Name 'Miss Chief Sooky': " + meow);
     }
 }

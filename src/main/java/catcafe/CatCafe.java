@@ -20,20 +20,14 @@ public class CatCafe {
         return clowder.size();
     }
 
-    /** return a cat that has a certain name the cat name is specified in the parameter */
-    public Optional<FelineOverLord> getCatByName(String name) {
-        if (name == null) throw new NullPointerException("no cat found");
+    public FelineOverLord getCatByName(String name) {
+        if (name == null) return null;
 
         for (FelineOverLord c : clowder) {
-            if (c.name().equals(name)) return Optional.of(c);
+            if (c.name().equals(name)) return c;
         }
-        return Optional.empty();
 
-        /*
-        return clowder.stream()
-            .sorted(FelineOverLord::compareTo)
-            .findFirst();
-         */
+        return null;
     }
 
     /** returns a cat that has a certain weight the weight is specified in the parameter */
@@ -52,4 +46,6 @@ public class CatCafe {
     String accept(TreeVisitor<FelineOverLord> visitor) {
         return clowder.accept(visitor);
     }
+
+
 }
