@@ -27,23 +27,17 @@ public class CatCafe {
 
     public Optional<FelineOverLord> getCatByName(String name) {
         if (name == null) throw new NullPointerException("invalid parameter!");
-
+/*
         for (FelineOverLord c : clowder) {
             if (c.name().equals(name)) {
                 return Optional.of(c);
             }
         }
         return Optional.empty();
-
-
-        /*
-        FelineOverLord d = clowder.stream()
+ */
+        return clowder.stream()
             .filter(c -> c.name().equals(name))
-            .findAny().orElseThrow();
-
-        return Optional.of(d);
-
-         */
+            .findFirst();
     }
 
 
@@ -54,13 +48,19 @@ public class CatCafe {
         if (minWeight < 0) throw new RuntimeException("cat with negative weight dont exist");
         if (maxWeight < minWeight) throw new RuntimeException("that doesnt make sense!");
 
+        /*
         for (FelineOverLord c : clowder) {
             if (c.weight() >= minWeight && c.weight() < maxWeight) {
                 return Optional.of(c);
             }
         }
-
         return Optional.empty();
+         */
+
+        return clowder.stream()
+            .filter(f -> f.weight() >= minWeight)
+            .filter(g -> g.weight() < maxWeight)
+            .findFirst();
     }
 
 

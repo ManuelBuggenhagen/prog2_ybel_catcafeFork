@@ -13,28 +13,40 @@ public class Main {
      */
     public static void main(String... args) {
         CatCafe cafe = new CatCafe();
+        FelineOverLord a = new FelineOverLord("Miss Chief Sooky", 2);
+        FelineOverLord b = new FelineOverLord("Gwenapurr Esmeralda", 3);
+        FelineOverLord c = new FelineOverLord("Morticia", 3);
+        FelineOverLord d = new FelineOverLord("Fitzby Darnsworth", 5);
 
-        cafe.addCat(new FelineOverLord("Miss Chief Sooky", 2));
-        cafe.addCat(new FelineOverLord("Gwenapurr Esmeralda", 3));
-        cafe.addCat(new FelineOverLord("Morticia", 4));
-        cafe.addCat(new FelineOverLord("Fitzby Darnsworth", 5));
+        cafe.addCat(a);
+        cafe.addCat(b);
+        cafe.addCat(c);
+        cafe.addCat(d);
 
         System.out.println("\n\nEs schnurren " + cafe.getCatCount() + " Samtpfoetchen.");
 
+        FelineOverLord meow = null;
         try {
-            FelineOverLord meow = cafe.getCatByWeight(3, 4).orElseThrow();
-            System.out.println("Gewicht [3,4]: " + meow);
+            if (cafe.getCatByWeight(3, 4).isPresent()) {
+                meow = cafe.getCatByWeight(3, 4).get();
+                System.out.println("Gewicht [3,4]: " + meow);
+            }
 
-            meow = cafe.getCatByName("Morticia").orElseThrow();
-            System.out.println("Name 'Morticia': " + meow);
+            if (cafe.getCatByName("Morticia").isPresent()) {
+                meow = cafe.getCatByName("Morticia").get();
+                System.out.println("Name 'Morticia': " + meow);
+            }
 
-            meow = cafe.getCatByName("Miss Chief Sooky").orElseThrow();
-            System.out.println("Name 'Miss Chief Sooky': " + meow);
+            if (cafe.getCatByName("Miss Chief Sooky").isPresent()) {
+                meow = cafe.getCatByName("Miss Chief Sooky").get();
+                System.out.println("Name 'Miss Chief Sooky': " + meow);
+            }
+
 
         } catch (NoSuchElementException e) {
             System.out.println("noSuchElement: " + e.getMessage());
-        } catch (NullPointerException d) {
-            System.out.println("nullPunter: " + d.getMessage());
+        } catch (NullPointerException f) {
+            System.out.println("nullPunter: " + f.getMessage());
         } catch (Exception x) {
             System.out.println("exception: " + x.getMessage());
         }
